@@ -1,0 +1,72 @@
+# 01 RAW AOI
+aoi_depressive_1:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/aoi_depresja_1.csv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: ","
+
+aoi_depressive_2:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/aoi_depresja_2.csv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: ","
+
+aoi_control_1:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/aoi_kontrolni_1.csv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: ","
+
+# 01 RAW EVENT
+event_depressive_1:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/event_depresja_1.csv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: ","
+
+event_depressive_2:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/event_depresja_2.csv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: ","
+
+event_control_1:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/event_kontrolni_1.csv
+  load_args:
+    sep: "\t"
+  save_args:
+    sep: ","
+
+# 02 COMBINED
+combined_aoi:
+  type: pandas.ParquetDataset
+  filepath: data/02_combined/aoi_combined.parquet
+
+combined_event:
+  type: pandas.ParquetDataset
+  filepath: data/02_combined/event_combined.parquet
+
+# 03 PREPARED
+combined_event_ready:
+  type: pandas.ParquetDataset
+  filepath: data/03_prepared/event_prepared.parquet
+
+combined_aoi_ready:
+  type: pandas.ParquetDataset
+  filepath: data/03_prepared/aoi_prepared.parquet
+
+# 04 MERGED
+model_input_table:
+  type: pandas.ParquetDataset
+  filepath: data/04_merged/data_final.parquet

@@ -1,18 +1,40 @@
-[tool.poetry]
-name = "oczy-model"
-version = "0.1.0"
-description = ""
-authors = ["None"]
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = ">=3.11, <3.12"
-pycaret = "^3.3.0"
-jupyter = "^1.0.0"
-kaleido = "0.2.1"
-pyarrow = "^15.0.2"
-
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ASI"
+readme = "README.md"
+dynamic = [ "dependencies", "version",]
+
+[project.scripts]
+ASI = "ASI.__main__:main"
+
+[tool.kedro]
+package_name = "ASI"
+project_name = "ASI"
+kedro_init_version = "0.19.3"
+tools = [ "Linting", "Kedro Viz",]
+example_pipeline = "False"
+source_dir = "src"
+
+[tool.ruff]
+line-length = 88
+show-fixes = true
+select = [ "F", "W", "E", "I", "UP", "PL", "T201",]
+ignore = [ "E501",]
+
+[project.entry-points."kedro.hooks"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
+
+[tool.setuptools.dynamic.version]
+attr = "ASI.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false

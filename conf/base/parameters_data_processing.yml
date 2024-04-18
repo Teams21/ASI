@@ -1,0 +1,3 @@
+dummy_loop_options:
+  dataset_start: 0
+  squash_count: 5
