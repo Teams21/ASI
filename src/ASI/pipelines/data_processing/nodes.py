@@ -75,7 +75,6 @@ def aoi_data_eng(combined_aoi: pd.DataFrame, parameters: dict[str, int]) -> pd.D
             if len(combined_aoi[c].unique()) > 1]]
 
     # remove all rows where column contains richtext.jpg
-    combined_aoi.to_csv('test.csv', index=False)
     combined_aoi = combined_aoi[combined_aoi['Stimulus'] != 'richtext.jpg']
 
     # few values in 'AOI Name' column are wrong, this is a fix

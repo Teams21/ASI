@@ -67,6 +67,12 @@ combined_aoi_ready:
   filepath: data/03_prepared/aoi_prepared.parquet
 
 # 04 MERGED
-model_input_table:
+model_input:
   type: pandas.ParquetDataset
   filepath: data/04_merged/data_final.parquet
+
+# 05 MODEL
+model_output:
+  type: pickle.PickleDataset
+  filepath: data/05_models/model.pickle
+  versioned: true

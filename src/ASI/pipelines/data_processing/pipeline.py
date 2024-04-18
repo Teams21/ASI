@@ -33,7 +33,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             node(
                 func=merge_aoi_w_events,
                 inputs=["combined_aoi_ready", "combined_event_ready"],
-                outputs="model_input_table",
+                outputs="model_input",
                 name="merge_aoi_w_events_node",
             )
         ]
