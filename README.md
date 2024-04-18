@@ -15,3 +15,4 @@ Steps to run:
  4. if the environment is not activated, run 'conda activate kedro-environment'
  4. install extra dependencies with 'pip install -r requirements.txt'
  5. run 'kedro run'
+ 6. optionally run 'kedro viz' for visualisation
