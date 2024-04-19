@@ -76,3 +76,8 @@ model_output:
   type: pickle.PickleDataset
   filepath: data/05_models/model.pickle
   versioned: true
+
+# 06 REPORTING
+prediction:
+  type: pandas.CSVDataset
+  filepath: data/06_reporting/prediction.csv

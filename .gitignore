@@ -148,3 +148,6 @@ venv.bak/
 
 # notebook
 notebooks/output/**
+
+# wandb
+wandb/**
