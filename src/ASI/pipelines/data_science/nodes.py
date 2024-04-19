@@ -20,7 +20,7 @@ def split_data(model_input: pd.DataFrame, parameters: dict[str, Any]) -> tuple[p
         stratify=model_input['Class'],
         random_state=parameters["random_state"]
     )
-    Xy_train.to_csv('data.csv')
+
     return Xy_train, Xy_test
 
 def train_model(Xy_train: pd.DataFrame) -> Union[Any, List[Any]]:
@@ -35,7 +35,7 @@ def train_model(Xy_train: pd.DataFrame) -> Union[Any, List[Any]]:
     """
     setup(Xy_train, target = 'Class', session_id = 123)
     best = compare_models()
-    print(f' best: {best}')
+
     return best
 
 def evaluate_model(
