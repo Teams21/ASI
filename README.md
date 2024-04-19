@@ -6,10 +6,13 @@ The project is an MLOps pipeline that aims to:
 
 Prerequisites:
  - python 3.11 installed
- - python poetry installed
+ - miniconda installed
 
 Steps to run:
- 1. clone the repo && cd
- 2. activate the virtual environment by running 'poetry shell'
- 3. download dependencies with 'poetry install'
- 4. run the jupter notebooks in order of their filenames
+ 1. clone the repo
+ 2. cd ASI
+ 3. create the virtual environment by running 'conda env create -f environment.yml'
+ 4. if the environment is not activated, run 'conda activate kedro-environment'
+ 4. install extra dependencies with 'pip install -r requirements.txt'
+ 5. run 'kedro run'
+ 6. optionally run 'kedro viz' for visualisation
