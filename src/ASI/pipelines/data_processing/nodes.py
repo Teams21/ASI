@@ -26,15 +26,31 @@ def _anonymize_sort(frame: pd.DataFrame) -> pd.DataFrame:
     # Sort all rows in participant then trial order
     frame.sort_values(by=['Participant', 'Trial'], inplace=True)
 
-    # There are rows with values that cause a conversion error when saving csv -> parquet, this is a fix
-    frame = _fix_parquet_save_error(frame)
+    return frame
+
+def _replace_str_float(frame: pd.DataFrame) -> pd.DataFrame:
+
+    # replace all values of '-' in the dataset with value 0.0 (columns are of type float)
+    frame.replace({'-': '0.0'}, regex=True, inplace=True)
 
     return frame
 
-def _fix_parquet_save_error(frame: pd.DataFrame) -> pd.DataFrame:
-    # hack to avoid issues with inferred parquet data type mismatch
-    for c in frame.columns:
-        frame[c] = frame[c].astype(str)
+def _fix_event_column_type(frame: pd.DataFrame) -> pd.DataFrame:
+
+    frame["Fixation Duration Maximum [ms]"] = frame["Fixation Duration Maximum [ms]"].astype('float64')
+    frame["Fixation Duration Minimum [ms]"] = frame["Fixation Duration Minimum [ms]"].astype('float64')
+    frame["Fixation Dispersion Average [px]"] = frame["Fixation Dispersion Average [px]"].astype('float64')
+    frame["Fixation Dispersion Maximum [px]"] = frame["Fixation Dispersion Maximum [px]"].astype('float64')
+    frame["Fixation Dispersion Minimum [px]"] = frame["Fixation Dispersion Minimum [px]"].astype('float64')
+    frame["Saccade Duration Average [ms]"] = frame["Saccade Duration Average [ms]"].astype('float64')
+    frame["Saccade Duration Maximum [ms]"] = frame["Saccade Duration Maximum [ms]"].astype('float64')
+    frame["Saccade Duration Minimum [ms]"] = frame["Saccade Duration Minimum [ms]"].astype('float64')
+    frame["Saccade Amplitude Average [°]"] = frame["Saccade Amplitude Average [°]"].astype('float64')
+    frame["Saccade Amplitude Maximum [°]"] = frame["Saccade Amplitude Maximum [°]"].astype('float64')
+    frame["Saccade Amplitude Minimum [°]"] = frame["Saccade Amplitude Minimum [°]"].astype('float64')
+    frame["Saccade Velocity Average [°/s]"] = frame["Saccade Velocity Average [°/s]"].astype('float64')
+    frame["Saccade Velocity Maximum [°/s]"] = frame["Saccade Velocity Maximum [°/s]"].astype('float64')
+    frame["Saccade Velocity Minimum [°/s]"] = frame["Saccade Velocity Minimum [°/s]"].astype('float64')
 
     return frame
 
@@ -53,7 +69,7 @@ def combine_aoi(aoi_depressive_1: pd.DataFrame, aoi_depressive_2: pd.DataFrame, 
     aoi_full = pd.concat([aoi_depressive, aoi_control_1])
 
     # There are rows with values that cause a conversion error when saving csv -> parquet, this is a fix
-    aoi_full = _fix_parquet_save_error(aoi_full)
+    aoi_full = _replace_str_float(aoi_full)
 
     return aoi_full
 
@@ -63,8 +79,11 @@ def combine_event(event_depressive_1: pd.DataFrame, event_depressive_2: pd.DataF
     event_full = pd.concat([event_depressive_1, event_depressive_2, event_control_1])
 
     # There are rows with values that cause a conversion error when saving csv -> parquet, this is a fix
-    event_full = _fix_parquet_save_error(event_full)
-    
+    event_full = _replace_str_float(event_full)
+
+    # Fix types of certain columns (for parquet)
+    event_full = _fix_event_column_type(event_full)
+
     return event_full
 
 def aoi_data_eng(combined_aoi: pd.DataFrame, parameters: dict[str, int]) -> pd.DataFrame:
@@ -138,6 +157,6 @@ def merge_aoi_w_events(combined_aoi: pd.DataFrame, combined_event: pd.DataFrame)
     merged = merged.loc[:, ~merged.columns.duplicated()]
 
     # There are rows with values that cause a conversion error when saving csv -> parquet, this is a fix
-    merged = _fix_parquet_save_error(merged)
+    merged = _replace_str_float(merged)
 
     return merged
