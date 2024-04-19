@@ -77,7 +77,7 @@ def combine_event(event_depressive_1: pd.DataFrame, event_depressive_2: pd.DataF
 
     # concat event_depressive_1, event_depressive_2 and event_control_1 datasets
     event_full = pd.concat([event_depressive_1, event_depressive_2, event_control_1])
-    event_full.to_csv('test_old.csv')
+
     # There are rows with values that cause a conversion error when saving csv -> parquet, this is a fix
     event_full = _replace_str_float(event_full)
 
