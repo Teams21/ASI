@@ -99,9 +99,6 @@ def aoi_data_eng(combined_aoi: pd.DataFrame, parameters: dict[str, int]) -> pd.D
     # few values in 'AOI Name' column are wrong, this is a fix
     combined_aoi.replace(to_replace='happy (1)', value='happy', inplace=True)
 
-    # Find locations of '-'
-    combined_aoi.replace('-', 0, inplace=True)
-
     # sort by Participant then Trial
     combined_aoi.sort_values(by=['Participant', 'Trial'], inplace=True, ignore_index=True)
 
@@ -125,8 +122,6 @@ def aoi_data_eng(combined_aoi: pd.DataFrame, parameters: dict[str, int]) -> pd.D
     # Run few aggregated methods that fixes issues with the dataset
     combined_aoi = _anonymize_sort(combined_aoi)
 
-    
-
     return combined_aoi
 
 def event_data_eng(combined_event: pd.DataFrame) -> pd.DataFrame:
@@ -141,9 +136,6 @@ def event_data_eng(combined_event: pd.DataFrame) -> pd.DataFrame:
 
     # sort by Participant then Trial
     combined_event.sort_values(by=['Participant', 'Trial'], inplace=True, ignore_index=True)
-
-    # Find locations of '-'
-    combined_event.replace('-', 0, inplace=True)
 
     # Run few aggregated methods that fixes issues with the dataset
     combined_event = _anonymize_sort(combined_event)
