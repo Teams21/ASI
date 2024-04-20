@@ -40,7 +40,7 @@ def train_model(Xy_train: pd.DataFrame) -> Union[Any, List[Any]]:
 
 def evaluate_model(
     model: Union[Any, List[Any]], Xy_test: pd.DataFrame
-):
+) -> pd.DataFrame:
     """Calculates and logs the coefficient of determination.
 
     Args:
@@ -53,6 +53,11 @@ def evaluate_model(
     X_test = Xy_test.drop('Class', axis=1)
     prediction = predict_model(model, data = X_test)
     prediction = pd.concat([prediction, y_test], axis=1)
+    prediction = prediction[['Class', 'prediction_label']]
+    # Replace 'depressive' with 1 and 'control' with 0 in both columns
+    prediction.replace({'depressive': 1, 'control': 0}, inplace=True)
     pd.set_option('display.max_rows', None)
     logger = logging.getLogger(__name__)
     logger.info(f"{(prediction['Class'] == prediction['prediction_label']).sort_values().count()/prediction.shape[0]*100}%")
+    
+    return prediction
