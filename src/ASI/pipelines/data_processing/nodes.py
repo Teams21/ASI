@@ -20,8 +20,11 @@ def _squash_rows(rows: pd.DataFrame) -> dict[str, str]:
 
 def _anonymize_sort(frame: pd.DataFrame) -> pd.DataFrame:
     # Replace participant with an index to make sure everyone is anonmyous
-    for idx, name in enumerate(frame['Participant'].sort_values().unique()):
-        frame.replace({'Participant': {f'{name}': idx}}, inplace=True)
+    # for idx, name in enumerate(frame['Participant'].sort_values().unique()):
+    #     frame.replace({'Participant': {f'{name}': idx}}, inplace=True)
+    frame['Participant'] = frame['Participant'].astype('category')
+    print('debug')
+    frame['Participant'] = frame['Participant'].cat.codes
 
     # Sort all rows in participant then trial order
     frame.sort_values(by=['Participant', 'Trial'], inplace=True)
@@ -150,5 +153,9 @@ def merge_aoi_w_events(combined_aoi: pd.DataFrame, combined_event: pd.DataFrame)
 
     # There are rows with values that cause a conversion error when saving csv -> parquet, this is a fix
     merged = _replace_str_float(merged)
+
+    # Remove square brackets and their contents from column names
+    # Eg: from "AOI Coverage [%] angry" to "AOI Coverage % angry"
+    merged.columns = [col.replace('[', '').replace(']', '').replace('°', '').replace(' ', '_') for col in merged.columns]
 
     return merged
