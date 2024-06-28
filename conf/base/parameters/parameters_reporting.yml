@@ -1,0 +1,4 @@
+aws_params:
+  profile_name: asi-s3-write
+  bucket_name: teams21-asi-bucket
+  model_path: data/05_models/model/predictor.pkl

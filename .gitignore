@@ -1,6 +1,9 @@
 ##########################
 # KEDRO PROJECT
 
+session_store.db
+stats.json
+
 # ignore all local configuration
 conf/local/**
 !conf/local/.gitkeep
