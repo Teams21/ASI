@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sqlalchemy import text, create_engine
 from sqlalchemy.orm import Session
@@ -11,7 +12,7 @@ def fetch_data() -> list[pd.DataFrame]:
     # Wczytaj postgres connection string z credentials.yml
     conf_path = str(Path(r'./') / settings.CONF_SOURCE)
     conf_loader = OmegaConfigLoader(conf_source=conf_path)
-    connection_string = conf_loader['credentials']['db_credentials']['con']
+    connection_string = os.getenv('POSTGRES_CONNECTION_STRING')
 
     # Stworz polaczenie do bazy danych
     engine = create_engine(connection_string)

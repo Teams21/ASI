@@ -1,3 +1,4 @@
+import os
 import logging
 import boto3.session
 import wandb
@@ -13,9 +14,7 @@ import psycopg2
 def _get_current_model_version() -> int:
 
     # Pobierz dane z credentials.yaml
-    conf_path = str(Path(r'./') / settings.CONF_SOURCE)
-    conf_loader = OmegaConfigLoader(conf_source=conf_path)
-    connection_string = conf_loader['credentials']['db_credentials']['con']
+    connection_string = os.getenv('POSTGRES_CONNECTION_STRING')
 
     # Stworz polaczenie do bazy danych
     engine = create_engine(connection_string)
@@ -42,13 +41,12 @@ def _get_current_model_version() -> int:
 
 def _upload_model_metadata(evaluation: dict[str, float], s3_path: str):
     # Pobierz dane z credentials.yaml
-    conf_path = str(Path(r'./') / settings.CONF_SOURCE)
-    conf_loader = OmegaConfigLoader(conf_source=conf_path)
-    dbname = conf_loader['credentials']['psycopg2_credentials']['dbname']
-    user = conf_loader['credentials']['psycopg2_credentials']['user']
-    password = conf_loader['credentials']['psycopg2_credentials']['password']
-    host = conf_loader['credentials']['psycopg2_credentials']['host']
-    port = conf_loader['credentials']['psycopg2_credentials']['port']
+    connection_string = os.getenv('PSYCOPG_CONNECTION_STRING')
+    dbname = connection_string.split(':')[0]
+    user = connection_string.split(':')[1]
+    password = connection_string.split(':')[2]
+    host = connection_string.split(':')[3]
+    port = connection_string.split(':')[4]
 
     # Stworz polaczenie do bazy danych
     connection = psycopg2.connect(

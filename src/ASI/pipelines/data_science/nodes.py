@@ -33,10 +33,6 @@ def evaluate_model(predictor: TabularPredictor, test: pd.DataFrame) -> dict[str,
 
     test_data = TabularDataset(test)
     predictor.predict(test_data)
-    # y_pred = predictor.predict(test_data)
-    # y_pred.rename("Prediction")
-    # prediction = test['Class']
-    # df = pd.concat([y_pred, prediction], ignore_index=True, axis=1)
     evaluation = predictor.evaluate(test_data)
 
     logger = logging.getLogger(__name__)
