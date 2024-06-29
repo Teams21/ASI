@@ -22,6 +22,39 @@ In this application, we utilize eye movement data tracked by BeGaze2 to train a 
 Research on eye movements in the context of mental health focuses on analyzing how these patterns can reflect an individual's emotional and psychological state. By tracking eye movements, scientists aim to identify biomarkers associated with depression, anxiety, and other mental disorders. Technologies like BeGaze2 enable precise and non-invasive studies that support early detection, diagnosis, and monitoring of psychological therapies' effects.
 ## Content
 ## Detailed Column Descriptions
+* Stimulus - Stimulus name.
+* Export Start Trial Time [ms] - Export start time, normally zero.
+* Export End Trial Time [ms] -  Export end time.
+* Participant - Participant name.
+* Color: The color of the stimulus element that was presented.
+* Eye L/R - Which eye fixated inside an AOI.
+* AOI Name - Area of interest name
+* AOI Group - AOI Group name
+* AOI Scope -  AOI Scope(global: AOI present in all stimuli, local: AOI present in one stimulus only)
+* AOI Order - AOI depth order on the Z axis
+* AOI Size [px] - Size of AOI in pixel - the part overlapping the stimulus is taken into consideration, parts outside 
+the stimulus area are ignored. For dynamic AOIs the size is the sum of sizes at each sample timestamp (as defined above) where the AOI is visible averaged by the number of samples where the AOI is visible.
+* AOI Coverage [%] - AOI size in comparison to Stimulus size.
+* Time to First Appearance [ms] -  Time when the AOI becomes visible for the first time relative to the trial start.
+* Appearance Count - Sum of all appearances of one AOI  within the stimulus (the number of sliceswhere the AOI was visible).
+* Visible Time [ms] - Sum of AOI duration within one trial– For static AOI it is end time – start time– For dynamic AOI it is the sum of all durations where the AOI was visible within start and end time.
+* Visible Time [%] - Visible time (ms) / (end time - start time).
+* Entry Time [ms] -  Duration from start of the trial to the first fixation hit of the AOI (fixation position is inside the AOI).
+* Sequence - Order of gaze hits into the AOIs based on Entry Time, lowest Entry Time = first in sequence.
+* Net Dwell Time [ms] - Sum of sample durations for all gaze data samples that hit the AOI. 
+* Dwell Time [ms] - Dwell Time is the sum of all Dwell Times for each visit of an AOI. Dwell Time for one visit is the sum of durations of all saccades and fixations inside the AOI.
+* Normalized Dwell [ms/Coverage] - Dwell time divided by AOI Coverage.
+* Glance Duration [ms] - Saccade duration for entering the object + sum of all fixation durations and saccade durations before the eyes begin to leave the AOI = dwell time + duration of saccade entering AOI. (*)
+* Diversion Duration [ms] - Duration of the first fixation to hit the AOI.
+* First Fixation Duration [ms] -  The duration of the first fixation in an AOI(if any).
+* Glances Count - Number of glances to a target (saccades coming from outside) within a certain period (increment the   each time a fixation hits the AOI, if not hit before).[both eyes].
+* Revisits - Glances count - 1.
+* Fixation Count - Number of fixations inside the AOI.
+* Net Dwell Time [%] - Net dwell time (ms) / (end time - start time).
+* Dwell Time [%] - Dwell time (ms) / (end time - start time).
+* Fixation Time [ms] - Sum of the fixation durations inside the AOI.
+* Fixation Time [%] - Fixation time (ms) / (end time - start time).
+* Average Fixation Duration [ms] - The sum of fixation times divided by number of fixations inside an AOI.
 ## Training Method
 ## Prerequisites 
 - miniconda installed
