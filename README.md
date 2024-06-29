@@ -59,51 +59,51 @@ the stimulus area are ignored. For dynamic AOIs the size is the sum of sizes at 
 ## Prerequisites 
 - miniconda installed
 ## Requirements
-anyio==3.7.1
-binaryornot==0.4.4
-category-encoders==2.6.3
-click-default-group==1.2.4
-conda==22.9.0
-Cython==3.0.10
-docker-pycreds==0.4.0
-fastapi==0.110.1
-graphql-core==3.2.3
-hpack==4.0.0
-httptools==0.6.1
-imbalanced-learn==0.12.2
-joblib==1.3.2
-kedro-telemetry==0.3.2
-kedro-viz==9.0.0
-llvmlite==0.42.0
-matplotlib==3.7.5
-munkres==1.1.4
-packaging==23.2
-pandas==1.5.3
-pathtools==0.1.2
-pmdarima==2.0.4
-protobuf==4.25.3
-pyarrow==15.0.2
-pycaret==3.3.1
-pydantic_core==2.18.1
-pyod==1.1.3
-python-dotenv==1.0.1
-python-editor==1.0.4
-pywin32==306
-retrying==1.3.3
-ruff==0.1.15
-scikit-base==0.7.7
-scikit-plot==0.3.7
-scipy==1.11.4
-secure==0.3.0
-sktime==0.26.0
-strawberry-graphql==0.226.0
-tbats==1.1.3
-threadpoolctl==3.4.0
-torch==2.0.1
-watchfiles==0.21.0
-watchgod==0.8.2
-yellowbrick==1.5
-zstandard==0.22.0
+- anyio==3.7.1
+- binaryornot==0.4.4
+- category-encoders==2.6.3
+- click-default-group==1.2.4
+- conda==22.9.0
+- Cython==3.0.10
+- docker-pycreds==0.4.0
+- fastapi==0.110.1
+- graphql-core==3.2.3
+- hpack==4.0.0
+- httptools==0.6.1
+- imbalanced-learn==0.12.2
+- joblib==1.3.2
+- kedro-telemetry==0.3.2
+- kedro-viz==9.0.0
+- llvmlite==0.42.0
+- matplotlib==3.7.5
+- munkres==1.1.4
+- packaging==23.2
+- pandas==1.5.3
+- pathtools==0.1.2
+- pmdarima==2.0.4
+- protobuf==4.25.3
+- pyarrow==15.0.2
+- pycaret==3.3.1
+- pydantic_core==2.18.1
+- pyod==1.1.3
+- python-dotenv==1.0.1
+- python-editor==1.0.4
+- pywin32==306
+- retrying==1.3.3
+- ruff==0.1.15
+- scikit-base==0.7.7
+- scikit-plot==0.3.7
+- scipy==1.11.4
+- secure==0.3.0
+- sktime==0.26.0
+- strawberry-graphql==0.226.0
+- tbats==1.1.3
+- threadpoolctl==3.4.0
+- torch==2.0.1
+- watchfiles==0.21.0
+- watchgod==0.8.2
+- yellowbrick==1.5
+- zstandard==0.22.0
 ## Setup Environment
 Steps to run from Anaconda Prompt (miniconda 3):
  1.  clone the repo 'git clone git@github.com:Teams21/ASI.git'
