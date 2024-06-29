@@ -71,6 +71,7 @@ def _upload_model_metadata(evaluation: dict[str, float], s3_path: str):
 def evaluate_model_remote(evaluation: dict[str, float]):
     """ Calculates and logs the coefficient of determination. """
 
+    wandb.login(key=os.getenv('WANDB_API_KEY'))
     run = wandb.init(project='ASI')
     try:
         # Log metrics

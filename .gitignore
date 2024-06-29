@@ -142,6 +142,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+bin/
+lib64
 
 # mkdocs documentation
 /site
