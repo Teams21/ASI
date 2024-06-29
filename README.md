@@ -7,20 +7,17 @@ The project is an MLOps pipeline that aims to:
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Context](#context)
-3. [Content](#content)
-4. [Detailed Column Descriptions](#detailed-column-descriptions)
-5. [Training Method](#training-method)
-6. [Prerequisites](prerequisites)
-7. [Requirements](#requirements)
-8. [Setup Environment](#setup-environment)
-9. [Running the Application](#running-the-application)
-10. [Setup Development](#setup-development)
+3. [Detailed Column Descriptions](#detailed-column-descriptions)
+4. [Prerequisites](prerequisites)
+5. [Requirements](#requirements)
+6. [Setup Environment](#setup-environment)
+7. [Running the Application](#running-the-application)
+8. [Setup Development](#setup-development)
 
 ## Introduction
 In this application, we utilize eye movement data tracked by BeGaze2 to train a model that classifies individuals as depressed or not. Our goal is to create a tool capable of providing rapid and accurate depression assessments based on the analysis of eye movement patterns, aiming to enhance mental health diagnostics.
 ## Context
 Research on eye movements in the context of mental health focuses on analyzing how these patterns can reflect an individual's emotional and psychological state. By tracking eye movements, scientists aim to identify biomarkers associated with depression, anxiety, and other mental disorders. Technologies like BeGaze2 enable precise and non-invasive studies that support early detection, diagnosis, and monitoring of psychological therapies' effects.
-## Content
 ## Detailed Column Descriptions
 * Stimulus - Stimulus name.
 * Export Start Trial Time [ms] - Export start time, normally zero.
@@ -55,7 +52,6 @@ the stimulus area are ignored. For dynamic AOIs the size is the sum of sizes at 
 * Fixation Time [ms] - Sum of the fixation durations inside the AOI.
 * Fixation Time [%] - Fixation time (ms) / (end time - start time).
 * Average Fixation Duration [ms] - The sum of fixation times divided by number of fixations inside an AOI.
-## Training Method
 ## Prerequisites 
 - miniconda installed
 ## Requirements
