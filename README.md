@@ -19,6 +19,7 @@ The project is an MLOps pipeline that aims to:
 ## Introduction
 In this application, we utilize eye movement data tracked by BeGaze2 to train a model that classifies individuals as depressed or not. Our goal is to create a tool capable of providing rapid and accurate depression assessments based on the analysis of eye movement patterns, aiming to enhance mental health diagnostics.
 ## Context
+Research on eye movements in the context of mental health focuses on analyzing how these patterns can reflect an individual's emotional and psychological state. By tracking eye movements, scientists aim to identify biomarkers associated with depression, anxiety, and other mental disorders. Technologies like BeGaze2 enable precise and non-invasive studies that support early detection, diagnosis, and monitoring of psychological therapies' effects.
 ## Content
 ## Detailed Column Descriptions
 ## Training Method
