@@ -9,11 +9,12 @@ The project is an MLOps pipeline that aims to:
 2. [Context](#context)
 3. [Detailed Column Descriptions](#detailed-column-descriptions)
 4. [Wizualizacja pipeline'ów]()
-5. [Prerequisites](prerequisites)
-6. [Requirements](#requirements)
-7. [Setup Environment](#setup-environment)
-8. [Running the Application](#running-the-application)
-9. [Setup Development](#setup-development)
+5. [Architecture](#architecture)
+6. [Prerequisites](prerequisites)
+7. [Requirements](#requirements)
+8. [Setup Environment](#setup-environment)
+9. [Running the Application](#running-the-application)
+10. [Setup Development](#setup-development)
 
 ## Introduction
 In this application, we utilize eye movement data tracked by BeGaze2 to train a model that classifies individuals as depressed or not. Our goal is to create a tool capable of providing rapid and accurate depression assessments based on the analysis of eye movement patterns, aiming to enhance mental health diagnostics.
@@ -55,6 +56,8 @@ the stimulus area are ignored. For dynamic AOIs the size is the sum of sizes at 
 * Average Fixation Duration [ms] - The sum of fixation times divided by number of fixations inside an AOI.
 ## Wizualizacja pipeline'ów
 ![image](https://github.com/Teams21/ASI/assets/21336128/773407a6-0dc9-4d2c-9aaf-17b072836605)
+## Architecture
+![image](https://github.com/Teams21/ASI/assets/21336128/5f7eb0c7-ab13-49e5-a4ec-af3c48e99bbf)
 ## Prerequisites 
 - miniconda installed
 ## Requirements
